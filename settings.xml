@@ -6,22 +6,22 @@
   <servers>
     <server>
       <id>github</id>
-      <username>ahlianko</username>
+      <username>ahlianko@gmail.com</username>
       <password>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</password>
     </server>
     <server>
       <id>github-snapshot</id>
-      <username>ahlianko</username>
+      <username>ahlianko@gmail.com</username>
       <password>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</password>
     </server>
     <server>
       <id>github-release</id>
-      <username>ahlianko</username>
+      <username>ahlianko@gmail.com</username>
       <password>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</password>
     </server>
     <server>
       <id>github-ahlianko-maven-release-test</id>
-      <username>ahlianko</username>
+      <username>ahlianko@gmail.com</username>
       <password>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</password>
     </server>
   </servers>

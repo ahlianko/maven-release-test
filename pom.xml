@@ -54,13 +54,13 @@
       <id>github</id>
       <distributionManagement>
         <repository>
-          <id>github-release</id>
+          <id>github-ahlianko-maven-release-test-release</id>
           <name>GitHub MoneyLion Apache Maven Packages</name>
           <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
           <uniqueVersion>false</uniqueVersion>
         </repository>
         <snapshotRepository>
-          <id>github-snapshot</id>
+          <id>github-ahlianko-maven-release-test-snapshot</id>
           <name>GitHub MoneyLion Apache Maven Packages</name>
           <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
           <uniqueVersion>true</uniqueVersion>

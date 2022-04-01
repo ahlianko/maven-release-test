@@ -1,62 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.2</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.ahlianko</groupId>
-	<artifactId>maven-release-test</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
-	<name>maven-release-test</name>
-	<description>Demo project for Spring Boot</description>
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.6.2</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.ahlianko</groupId>
+  <artifactId>maven-release-test</artifactId>
+  <version>0.0.3-SNAPSHOT</version>
+  <name>maven-release-test</name>
+  <description>Demo project for Spring Boot</description>
+  <properties>
+    <java.version>11</java.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5.3</version>
-				<configuration>
-					<tagNameFormat>@{project.version}</tagNameFormat>
-					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<checkModificationExcludes>
-						<checkModificationExclude>pom.xml</checkModificationExclude>
-					</checkModificationExcludes>
-					<allowReleasePluginSnapshot>true</allowReleasePluginSnapshot>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <tagNameFormat>@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <checkModificationExcludes>
+            <checkModificationExclude>pom.xml</checkModificationExclude>
+          </checkModificationExcludes>
+          <allowReleasePluginSnapshot>true</allowReleasePluginSnapshot>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>github</id>
+      <distributionManagement>
+        <repository>
+          <id>github-release</id>
+          <name>GitHub MoneyLion Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
+          <uniqueVersion>false</uniqueVersion>
+        </repository>
+        <snapshotRepository>
+          <id>github-snapshot</id>
+          <name>GitHub MoneyLion Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
+          <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+      </distributionManagement>
 
-	<scm>
-		<url>https://github.com/ahlianko/maven-release-test</url> <!-- URL HTTP de clone do projeto -->
-		<connection>scm:git:https://github.com/ahlianko/maven-release-test
-		</connection> <!-- URL HTTP de clone do projeto -->
-		<developerConnection>scm:git:https://github.com/ahlianko/maven-release-test
-		</developerConnection> <!-- URL HTTP de clone do projeto -->
-		<tag>@{project.version}</tag>
-	</scm>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
+          <id>github</id>
+          <name>GitHub</name>
+          <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <scm>
+    <url>https://github.com/ahlianko/maven-release-test</url> <!-- URL HTTP de clone do projeto -->
+    <connection>scm:git:https://github.com/ahlianko/maven-release-test
+    </connection> <!-- URL HTTP de clone do projeto -->
+    <developerConnection>scm:git:https://github.com/ahlianko/maven-release-test
+    </developerConnection> <!-- URL HTTP de clone do projeto -->
+    <tag>@{project.version}</tag>
+  </scm>
 
 </project>

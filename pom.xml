@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.6.2</version>
-    <relativePath /> <!-- lookup parent from repository -->
+    <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.ahlianko</groupId>
   <artifactId>maven-release-test</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4-SNAPSHOT</version>
   <name>maven-release-test</name>
   <description>Demo project for Spring Boot</description>
   <properties>
@@ -49,41 +51,41 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>github</id>
-      <distributionManagement>
-        <repository>
-          <id>github-ahlianko-maven-release-test-release</id>
-          <name>GitHub MoneyLion Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
-          <uniqueVersion>false</uniqueVersion>
-        </repository>
-        <snapshotRepository>
-          <id>github-ahlianko-maven-release-test-snapshot</id>
-          <name>GitHub MoneyLion Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
-          <uniqueVersion>true</uniqueVersion>
-        </snapshotRepository>
-      </distributionManagement>
+  <!--  <profiles>-->
+  <!--    <profile>-->
+  <id>github</id>
+  <distributionManagement>
+    <repository>
+      <id>github-ahlianko-maven-release-test-release</id>
+      <name>GitHub MoneyLion Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
+      <uniqueVersion>false</uniqueVersion>
+    </repository>
+    <snapshotRepository>
+      <id>github-ahlianko-maven-release-test-snapshot</id>
+      <name>GitHub MoneyLion Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
+      <uniqueVersion>true</uniqueVersion>
+    </snapshotRepository>
+  </distributionManagement>
 
-      <repositories>
-        <repository>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <id>central</id>
-          <name>libs-release</name>
-          <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
-        <repository>
-          <id>github</id>
-          <name>GitHub</name>
-          <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>libs-release</name>
+      <url>https://repo.maven.apache.org/maven2/</url>
+    </repository>
+    <repository>
+      <id>github-ahlianko-maven-release-test-release</id>
+      <name>GitHub</name>
+      <url>https://maven.pkg.github.com/ahlianko/maven-release-test</url>
+    </repository>
+  </repositories>
+  <!--    </profile>-->
+  <!--  </profiles>-->
 
   <scm>
     <url>https://github.com/ahlianko/maven-release-test</url> <!-- URL HTTP de clone do projeto -->
@@ -91,7 +93,7 @@
     </connection> <!-- URL HTTP de clone do projeto -->
     <developerConnection>scm:git:https://github.com/ahlianko/maven-release-test
     </developerConnection> <!-- URL HTTP de clone do projeto -->
-    <tag>0.0.3</tag>
+    <tag>@{project.version}</tag>
   </scm>
 
 </project>
